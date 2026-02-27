@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Output · Barış Bay</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="page-output dark">
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+     <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="output.html"class="active">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html" >Other</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">[+dark]</button>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+
+      <h2>Research</h2>
+
+      <article class="item">
+        <h3>Infixation and Reduplication </h3>
+        <p>
+          Revisiting Chamorro: A Cyclic Account of Infixation and Reduplication.
+          <a href="files/igg51-paper.pdf" target="_blank">[PDF]</a>
+        </p>
+
+        <p>
+          Poster Presented at IGG51, Università degli Studi di Udine, February 12-14, 2026.
+          <a href="files/igg51-poster.pdf" target="_blank">[Poster]</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>Icelandic P-stranding (Ongoing MA Thesis Work)</h3>
+        <p>
+          Adaptable workflow with Excel and Python scripts for data processing; 
+          label matching, automatic labelling, and preprocessing for MAUS. 
+          Notes and scripts available on 
+          <a href="https://github.com/barisbay00/Adaptable-Workflow-for-Processing-Randomized-Production-Data"
+             target="_blank" rel="noopener">[GitHub]</a>
+        </p>
+      </article>
+<!-- scrapped for now, will add back later maybe
+<h2>Teaching</h2>
+
+      <article class="item">
+        <h3>Core Components A — Selected Tutorial Exercises</h3>
+        <p>
+          A curated selection of exercises prepared for Core Components A, and MA level introductory course to Phonetics, Phonology, and Morphology.
+          <a href="files/core-components-exercises.pdf"
+             target="_blank">[PDF]</a>
+        </p>
+      </article>
+-->
+      
+
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      function getEffectiveTheme() {
+        if (body.classList.contains('dark')) return 'dark';
+        if (body.classList.contains('light')) return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          body.classList.add('dark');
+          body.classList.remove('light');
+        } else {
+          body.classList.add('light');
+          body.classList.remove('dark');
+        }
+      }
+      function updateIcon() {
+        const isDark = getEffectiveTheme() === 'dark';
+        toggle.textContent = isDark ? '[+dark]' : '[-dark]';
+      }
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark') {
+        applyTheme('dark');
+      } else if (stored === 'light') {
+        applyTheme('light');
+      } else {
+        applyTheme('dark');
+      }
+      updateIcon();
+      toggle.addEventListener('click', () => {
+        const current = getEffectiveTheme();
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+        updateIcon();
+      });
+    })();
+  </script>
+</body>
+</html>

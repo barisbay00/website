@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Other · Barış Bay</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="page-other dark">
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+      <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="output.html">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html" class="active">Other</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">[+dark]</button>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+
+      <h2>Music</h2>
+
+      <p>
+        I used to be a musician some time ago. I played in Geeva Flava (jazz fusion/folk band) from 2019 to 2021 and contributed to 
+        <em>Telve</em> and <em>Hadal Zone</em>.
+      </p>
+
+      <p class="links">
+        <a href="https://open.spotify.com/artist/1gzLVGMn6ZcMIEnqOGLyQl" target="_blank" rel="noopener">Spotify</a>
+        ·
+        <a href="https://www.gulbabamusic.com/geeva-flava" target="_blank" rel="noopener">Label</a>
+      </p>
+
+      <div class="grid">
+        <figure class="card">
+          <img src="assets/telve-cover.jpg" alt="Telve">
+          <figcaption><em>Telve · 2020 · Single </em></figcaption>
+        </figure>
+
+        <figure class="card">
+          <img src="assets/hadal-zone-cover.jpg" alt="Hadal Zone">
+          <figcaption><em>Hadal Zone · 2021 · Album</em></figcaption>
+        </figure>
+      </div>
+
+      <h2>Stickers</h2>
+
+      <p>
+        I also make some stickers for fun, here is one of my favorites.
+      </p>
+
+      <div class="grid">
+        <figure class="card">
+          <img class="sticker-img" src="assets/stickers/hiwinotkiwi.png" alt="Hiwi Not Kiwi">
+          <figcaption><s>K</s> ...Hiwi</figcaption>
+        </figure>
+      </div>
+
+      <p class="links">
+        <a href="https://cloud.uni-konstanz.de/index.php/s/sG5zesC4T7ya7aw" target="_blank" rel="noopener">More</a>
+      </p>
+
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      function getEffectiveTheme() {
+        if (body.classList.contains('dark')) return 'dark';
+        if (body.classList.contains('light')) return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          body.classList.add('dark');
+          body.classList.remove('light');
+        } else {
+          body.classList.add('light');
+          body.classList.remove('dark');
+        }
+      }
+      function updateIcon() {
+        const isDark = getEffectiveTheme() === 'dark';
+        toggle.textContent = isDark ? '[+dark]' : '[-dark]';
+      }
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark') {
+        applyTheme('dark');
+      } else if (stored === 'light') {
+        applyTheme('light');
+      } else {
+        applyTheme('dark');
+      }
+      updateIcon();
+      toggle.addEventListener('click', () => {
+        const current = getEffectiveTheme();
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+        updateIcon();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barış Bay</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="dark">
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+      <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html"class="active">Home</a>
+          <a href="output.html">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html">Other</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">[+dark]</button>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <p>
+          I’m an MA student in Linguistics at the University of Konstanz.
+          Currently, I am working as a research assistant in the Department
+          of Linguistics, where I contribute to ongoing projects in theoretical
+          & experimental linguistics. I also have some side-projects of my own,
+          which are scattered around this website. My CV is available
+          <a href="files/cv.pdf" target="_blank">here</a>.
+        
+        <br> <br>
+       If you have any questions, comments or would like to get in touch, feel free to reach out!</p>
+
+        <p class="contact">
+          <a href="mailto:baris.bay@uni-konstanz.de">Mail</a>
+          ·
+          <a href="https://www.linkedin.com/in/bar%C4%B1%C5%9F-bay-b5b129324/" target="_blank" rel="noopener">LinkedIn</a>
+          ·
+          <a href="https://github.com/barisbay00" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <aside class="hero-photo">
+        <img src="profile.jpg" alt="Profile photo" />
+      </aside>
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      function getEffectiveTheme() {
+        if (body.classList.contains('dark')) return 'dark';
+        if (body.classList.contains('light')) return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          body.classList.add('dark');
+          body.classList.remove('light');
+        } else {
+          body.classList.add('light');
+          body.classList.remove('dark');
+        }
+      }
+      function updateIcon() {
+        const isDark = getEffectiveTheme() === 'dark';
+        toggle.textContent = isDark ? '[+dark]' : '[-dark]';
+      }
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark') {
+        applyTheme('dark');
+      } else if (stored === 'light') {
+        applyTheme('light');
+      } else {
+        // default to dark
+        applyTheme('dark');
+      }
+      updateIcon();
+      toggle.addEventListener('click', () => {
+        const current = getEffectiveTheme();
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+        updateIcon();
+      });
+    })();
+  </script>
+</body>
+</html>
