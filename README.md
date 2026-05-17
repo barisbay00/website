@@ -1,6 +1,6 @@
 # Update
 
-This is my personal website with improved build based on your feedback; live as of 17/05/2026. Some changes include:
+This is my personal website with improved build based on your feedback; live as of 17/05/2026.
 
 ## Some Changes
 
