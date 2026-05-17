@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impressum · Barış Bay</title>
+  <meta name="description" content="Legal notice (Impressum) for barisbay.com." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://barisbay.com/impressum.html" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+      <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="output.html">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html">Other</a>
+        </nav>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+      <h2>Legal Notice (Impressum)</h2>
+
+      <p>Responsible for content:</p>
+      <p>
+        Barış Bay<br>
+        c/o Department of Linguistics, University of Konstanz<br>
+        Raum G 115<br>
+        Universitätsstraße 10, 78457 Konstanz, Germany<br>
+        Email: <a href="mailto:baris.bay@uni-konstanz.de">baris.bay@uni-konstanz.de</a>
+      </p>
+
+      <p>
+        <strong>Liability.</strong> Content on this site has been compiled with care but no warranty is given for recency of information — even though I try to update things regularly. Responsibility for external links lies with their respective operators.
+      </p>
+
+      <p>
+        <strong>Privacy.</strong> This site loads no third-party resources, sets no cookies, and uses no analytics or tracking scripts. localStorage is used only to remember your chosen color theme. GitHub Pages, the host, may keep standard HTTP request logs.
+      </p>
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Other · Barış Bay</title>
+  <meta name="description" content="Music, stickers, and other side projects by Barış Bay." />
+  <meta name="author" content="Barış Bay" />
+  <link rel="canonical" href="https://barisbay.com/other.html" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
+
+  <meta property="og:site_name" content="Barış Bay" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Other · Barış Bay" />
+  <meta property="og:description" content="Music, stickers, and other side projects by Barış Bay." />
+  <meta property="og:url" content="https://barisbay.com/other.html" />
+  <meta property="og:image" content="https://barisbay.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body class="page-other">
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+      <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="output.html">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html" class="active" aria-current="page">Other</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">[+dark]</button>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+
+      <h2>Music</h2>
+
+      <p>
+        I used to be a musician some time ago. I played in Geeva Flava (jazz fusion/folk band) from 2019 to 2021 and contributed to 
+        <em>Telve</em> and <em>Hadal Zone</em>.
+      </p>
+
+      <p class="links">
+        <a href="https://open.spotify.com/artist/1gzLVGMn6ZcMIEnqOGLyQl" target="_blank" rel="noopener noreferrer">Spotify</a>
+        ·
+        <a href="https://www.gulbabamusic.com/geeva-flava" target="_blank" rel="noopener noreferrer">Label</a>
+      </p>
+
+      <div class="grid">
+        <figure class="card">
+          <img src="assets/telve-cover.jpg" alt="Telve" width="640" height="640" loading="lazy" decoding="async">
+          <figcaption><em>Telve · 2020 · Single </em></figcaption>
+        </figure>
+
+        <figure class="card">
+          <img src="assets/hadal-zone-cover.jpg" alt="Hadal Zone" width="640" height="640" loading="lazy" decoding="async">
+          <figcaption><em>Hadal Zone · 2021 · Album</em></figcaption>
+        </figure>
+      </div>
+
+      <h2>Stickers</h2>
+
+      <p>
+        I also put together some stickers for fun, here is one of my favorites.
+      </p>
+
+      <div class="grid">
+        <figure class="card">
+          <img class="sticker-img" src="assets/stickers/hiwinotkiwi.png" alt="Hiwi Not Kiwi" width="639" height="416" loading="lazy" decoding="async">
+          <figcaption><s>K</s> ...Hiwi</figcaption>
+        </figure>
+      </div>
+
+      <p class="links">
+        <a href="https://cloud.uni-konstanz.de/index.php/s/sG5zesC4T7ya7aw" target="_blank" rel="noopener noreferrer">More</a>
+      </p>
+
+    </section>
+
+    <p class="last-updated">Last updated: May 17, 2026. · <a href="impressum.html">Impressum</a></p>
+
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      function effective() {
+        if (root.classList.contains('dark')) return 'dark';
+        if (root.classList.contains('light')) return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function apply(theme) {
+        root.classList.toggle('dark', theme === 'dark');
+        root.classList.toggle('light', theme === 'light');
+        root.style.colorScheme = theme;
+      }
+      function refresh() {
+        const dark = effective() === 'dark';
+        toggle.textContent = dark ? '[+dark]' : '[-dark]';
+        toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      }
+      refresh();
+      toggle.addEventListener('click', () => {
+        const next = effective() === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        refresh();
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Output · Barış Bay</title>
+  <meta name="description" content="Research output, papers, posters, and ongoing project notes by Barış Bay." />
+  <meta name="author" content="Barış Bay" />
+  <link rel="canonical" href="https://barisbay.com/output.html" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
+
+  <meta property="og:site_name" content="Barış Bay" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Output · Barış Bay" />
+  <meta property="og:description" content="Research output, papers, posters, and ongoing project notes by Barış Bay." />
+  <meta property="og:url" content="https://barisbay.com/output.html" />
+  <meta property="og:image" content="https://barisbay.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body class="page-output">
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+     <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="output.html" class="active" aria-current="page">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html" >Other</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">[+dark]</button>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+
+      <h2>Research</h2>
+
+      <article class="item">
+        <h3>Infixation and Reduplication</h3>
+        <p>
+          Revisiting Chamorro: A Cyclic Account of Infixation and Reduplication.
+          <a href="files/igg51-paper.pdf" target="_blank" rel="noopener">[PDF]</a>
+        </p>
+
+        <p>
+          Poster Presented at IGG51, Università degli Studi di Udine, February 12–14, 2026.
+          <a href="files/igg51-poster.pdf" target="_blank" rel="noopener">[Poster]</a>
+        </p>
+      </article>
+
+      <article class="item">
+        <h3>Icelandic P-stranding (Ongoing MA Thesis Work)</h3>
+        <p>
+          Adaptable workflow with Excel and Python scripts for production data; 
+          label matching, automatic labelling, and preprocessing for MAUS. 
+          Notes and scripts <s> available on </s>
+          <a href="https://youtu.be/aJCilj7qMGg?is=ptmQI4ngWDsv0DVG"
+             target="_blank" rel="noopener noreferrer">[Under Construction]</a>
+        </p>
+      </article>
+<!-- scrapped for now, will add back later maybe
+<h2>Teaching</h2>
+
+      <article class="item">
+        <h3>Core Components A — Selected Tutorial Exercises</h3>
+        <p>
+          A curated selection of exercises prepared for Core Components A, and MA level introductory course to Phonetics, Phonology, and Morphology.
+          <a href="files/core-components-exercises.pdf"
+             target="_blank" rel="noopener">[PDF]</a>
+        </p>
+      </article>
+-->
+      
+
+    </section>
+
+    <p class="last-updated">Last updated: May 17, 2026. · <a href="impressum.html">Impressum</a></p>
+
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      function effective() {
+        if (root.classList.contains('dark')) return 'dark';
+        if (root.classList.contains('light')) return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function apply(theme) {
+        root.classList.toggle('dark', theme === 'dark');
+        root.classList.toggle('light', theme === 'light');
+        root.style.colorScheme = theme;
+      }
+      function refresh() {
+        const dark = effective() === 'dark';
+        toggle.textContent = dark ? '[+dark]' : '[-dark]';
+        toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      }
+      refresh();
+      toggle.addEventListener('click', () => {
+        const next = effective() === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        refresh();
+      });
+    })();
+  </script>
+</body>
+</html>

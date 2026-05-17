@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barış Bay · Linguistics</title>
+  <meta name="description" content="Personal website of Barış Bay, MA Linguistics student and research assistant at the University of Konstanz." />
+  <meta name="author" content="Barış Bay" />
+  <link rel="canonical" href="https://barisbay.com/" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
+
+  <meta property="og:site_name" content="Barış Bay" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Barış Bay · Linguistics" />
+  <meta property="og:description" content="Personal website of Barış Bay, MA Linguistics student and research assistant at the University of Konstanz." />
+  <meta property="og:url" content="https://barisbay.com/" />
+  <meta property="og:image" content="https://barisbay.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Barış Bay",
+      "url": "https://barisbay.com/",
+      "image": "https://barisbay.com/profile1.jpg",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Konstanz",
+        "url": "https://www.uni-konstanz.de/"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/bar%C4%B1%C5%9F-bay-b5b129324/",
+        "https://github.com/barisbay00"
+      ]
+    }
+  </script>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Barış Bay</h1>
+        <div class="subtitle">MA Linguistics · University of Konstanz</div>
+      </div>
+
+      <div class="nav-area">
+        <nav class="nav">
+          <a href="index.html" class="active" aria-current="page">Home</a>
+          <a href="output.html">Output</a>
+          <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="other.html">Other</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">[+dark]</button>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <p>
+          I am currently an MA student in Linguistics at the University of Konstanz. I have some side-projects of my own,
+          which are scattered around this website.
+          I also work as a research assistant in the Department
+          of Linguistics, where I contribute to ongoing projects in theoretical,
+          experimental, and corpus linguistics (e.g., <a href="https://www.sfb1760.uni-konstanz.de/" target="_blank" rel="noopener">SFB1760 B03</a> and <a href="https://www.ling.uni-konstanz.de/dehe/team-1/student-staff/" target="_blank" rel="noopener">AG Dehé</a>).
+        
+        <br> <br>
+       If you have any questions, comments or would like to get in touch, feel free to reach out!</p>
+
+        <p class="contact">
+          <a href="mailto:baris.bay@uni-konstanz.de">Mail</a>
+          ·
+          <a href="https://www.linkedin.com/in/bar%C4%B1%C5%9F-bay-b5b129324/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          ·
+          <a href="https://github.com/barisbay00" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+      </div>
+
+      <aside class="hero-photo">
+        <img src="profile1.jpg" alt="" width="457" height="420" fetchpriority="high" decoding="async" />
+      </aside>
+    </section>
+
+    <p class="last-updated">Last updated: May 17, 2026. · <a href="impressum.html">Impressum</a></p>
+
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      function effective() {
+        if (root.classList.contains('dark')) return 'dark';
+        if (root.classList.contains('light')) return 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function apply(theme) {
+        root.classList.toggle('dark', theme === 'dark');
+        root.classList.toggle('light', theme === 'light');
+        root.style.colorScheme = theme;
+      }
+      function refresh() {
+        const dark = effective() === 'dark';
+        toggle.textContent = dark ? '[+dark]' : '[-dark]';
+        toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      }
+      refresh();
+      toggle.addEventListener('click', () => {
+        const next = effective() === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        refresh();
+      });
+    })();
+  </script>
+</body>
+</html>

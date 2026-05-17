@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Not found · Barış Bay</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <main class="page">
+    <header class="site-header">
+      <div class="brand">
+        <h1>404</h1>
+        <div class="subtitle">Page not found</div>
+      </div>
+      <div class="rule" aria-hidden="true"></div>
+    </header>
+
+    <section class="content">
+      <p>The page you're looking for doesn't exist (or moved).</p>
+      <p>
+        <a href="/">Back to the home page</a> ·
+        <a href="/output.html">Output</a> ·
+        <a href="/other.html">Other</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>
