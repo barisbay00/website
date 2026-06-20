@@ -14,4 +14,4 @@ This is my personal website with improved build based on your feedback; live as 
 - Concluded there was not much more to change.
 - Called it a day.
 
-Please feel free to do let me know if I missed anything else. A good lesson for me, and all who like to learn swimming by jumping into the water first, is that triple-checking > double-checking. 
+Please feel free to let me know if I missed anything else. A good lesson for me, and all who like to learn swimming by jumping into the water first, is that triple-checking > double-checking. 
